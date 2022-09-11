@@ -1,4 +1,3 @@
---[[ opts.lua ]]
 local opt = vim.opt
 
 -- [[ Clipboard ]]
@@ -21,7 +20,6 @@ opt.background = 'dark'
 opt.syntax = "ON"                -- str:  Allow syntax highlighting
 opt.termguicolors = true         -- bool: If term supports ui color then enable
 
-
 -- [[ Search ]]
 opt.ignorecase = true            -- bool: Ignore case in search patterns
 opt.smartcase = true             -- bool: Override ignorecase if search contains capitals
@@ -34,6 +32,10 @@ opt.shiftwidth = 2               -- num:  Size of an indent
 opt.softtabstop = 2              -- num:  Number of spaces tabs count for in insert mode
 opt.tabstop = 2                  -- num:  Number of spaces tabs count for
 
+-- FIXME: observe: sometimes annoying
+-- opt.smartindent = true           -- bool: Make indenting smarter again
+
+
 -- [[ Splits ]]
 opt.splitright = true            -- bool: Place new window to right of current one
 opt.splitbelow = true            -- bool: Place new window below the current one
@@ -45,6 +47,13 @@ opt.wrap = false                 -- bool: Display lines as one long line
 opt.backup = false
 opt.writebackup = false
 
+opt.cursorline = true
+
+opt.whichwrap:append("<,>,[,],h,l")
+opt.iskeyword:append("-")
+opt.shortmess:append "c"
+opt.list = true
+opt.listchars:append "eol:↴"
 
 -- vim.opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
 -- vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
@@ -54,8 +63,6 @@ opt.writebackup = false
 -- vim.opt.showmode = false                        -- we don't need to see things like -- INSERT -- anymore
 -- vim.opt.showtabline = 0                         -- always show tabs
 -- vim.opt.smartcase = true                        -- smart case
--- vim.opt.smartindent = true                      -- make indenting smarter again
--- vim.opt.swapfile = false                        -- creates a swapfile
 -- vim.opt.termguicolors = true                    -- set term gui colors (most terminals support this)
 -- vim.opt.timeoutlen = 1000                       -- time to wait for a mapped sequence to complete (in milliseconds)
 -- vim.opt.undofile = true                         -- enable persistent undo
@@ -67,5 +74,4 @@ opt.writebackup = false
 -- vim.opt.sidescrolloff = 8
 -- vim.opt.fillchars.eob=" "
 -- vim.opt.shortmess:append "c"
--- vim.opt.whichwrap:append("<,>,[,],h,l")
 -- vim.opt.iskeyword:append("-")
