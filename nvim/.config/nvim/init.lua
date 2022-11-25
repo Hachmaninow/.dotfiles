@@ -38,3 +38,12 @@ require("nvim-tree").setup {
 
 vim.g.rainbow_active = 1
 vim.g["conjure#log#hud#height"] = 0.95
+
+vim.api.nvim_exec(
+[[
+  function! ClerkShow()
+    exe "w"
+    exe "ConjureEval (nextjournal.clerk/show! \"" . expand("%:p") . "\")"
+  endfunction
+]],
+false)

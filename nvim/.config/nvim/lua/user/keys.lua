@@ -34,6 +34,8 @@ map("n", "<F1>", "<Esc>", silent)
 map("n", "<leader>x/", "<cmd>:nohl<cr>", silent)    -- clear search highlights
 map("n", "<leader>xx", "<cmd>:nohl<cr>", silent)    -- duplicate for quick access
 map("n", "<leader>xm", "<cmd>:delm!<cr>", silent)   -- delete all marks
+map("n", "<leader>xt", "<cmd>:cclose<cr>", silent)   -- close quicklist window
+map("n", "<leader>xq", "<cmd>:cclose<cr>", silent)   -- alternative (simpler to memorize?)
 
 -- Buffer navigation
 map("n", "<S-l>", ":bnext<cr>", silent)
@@ -61,11 +63,12 @@ map("n", "S", "<Plug>(SubversiveSubstituteToEndOfLine)", silent)
 map("n", "<C-t>", "<cmd>:NvimTreeToggle<cr>", silent)
 
 -- Telescope
-map("n", "<C-p>", "<cmd>:Telescope find_files<cr>", silent)
+map("n", "<C-p>", "<cmd>:Telescope git_files<cr>", silent)
 map("n", "<leader>ff", "<cmd>:Telescope find_files<cr>", silent)
 map("n", "<leader>fo", "<cmd>:Telescope oldfiles<cr>", silent)
 map("n", "<leader>fg", "<cmd>:Telescope live_grep<cr>", silent)
 map("n", "<leader>fb", "<cmd>:Telescope buffers<cr>", silent)
+map("n", "<C-b>", "<cmd>:Telescope buffers<cr>", silent)
 map("n", "<leader>fj", "<cmd>:Telescope jumplist<cr>", silent)
 map("n", "<leader>fc", "<cmd>:Telescope commands<cr>", silent)
 map("n", "<leader>fs", "<cmd>:Telescope lsp_document_symbols<cr>", silent)
@@ -97,8 +100,8 @@ map("v", "<leader><leader>2", "<cmd>:HopChar2<cr>", silent)
 map("v", "<leader><leader>l", "<cmd>:HopLine<cr>", silent)
 
 -- Conjure
-map("n", "<localleader>tt", "<cmd>:ConjureCljRunCurrentTest<cr>", silent)
-
+map("n", "<localleader>tt", "<cmd>:ConjureEvalRootForm<cr><cmd>:ConjureCljRunCurrentTest<cr>", silent)
+map("n", "<localleader>cs", "<cmd>:execute ClerkShow()<cr>", silent)
 
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -- Insert mode mappings
@@ -113,7 +116,7 @@ map("i", "<F1>", "<Esc>", silent)
 
 -- When replacing a selection with paste, then not change the clipboard
 map("v", "p", '"_dP', silent)
-	
+
 -- Stay in visual mode after indenting
 map("v", "<", "<gv", silent)
 map("v", ">", ">gv", silent)
@@ -122,4 +125,5 @@ map("v", ">", ">gv", silent)
 -- FIXME: This does not work perfectly, just for a single line.
 map("v", "<S-j>", ":m .+1<CR>gv", silent)
 map("v", "<S-k>", ":m .-2<CR>gv", silent)
+
 
