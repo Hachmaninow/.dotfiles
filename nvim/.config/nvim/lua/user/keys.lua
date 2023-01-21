@@ -30,9 +30,12 @@ vim.g.localleader = "\\"
 -- Remap F1 to Escape
 map("n", "<F1>", "<Esc>", silent)
 
+map("n", "<leader>p", 'a<space><C-r>"<esc>', silent)  -- paste with inserting a space letter upfront
+map("n", "<leader>P", 'i<space><C-r>"<esc>', silent)   -- paste before with inserting a space letter upfront
+
 -- Search / tags
 map("n", "<leader>x/", "<cmd>:nohl<cr>", silent)    -- clear search highlights
-map("n", "<leader>xx", "<cmd>:nohl<cr>", silent)    -- duplicate for quick access
+map("n", "<leader>xx", "<cmd>:nohl<cr><cmd>:cclose<cr><cmd>:only<cr>", silent)    -- reset "everything"
 map("n", "<leader>xm", "<cmd>:delm!<cr>", silent)   -- delete all marks
 map("n", "<leader>xt", "<cmd>:cclose<cr>", silent)   -- close quicklist window
 map("n", "<leader>xq", "<cmd>:cclose<cr>", silent)   -- alternative (simpler to memorize?)
@@ -98,6 +101,13 @@ map("v", "<leader><leader>/", "<cmd>:HopPattern<cr>", silent)
 map("v", "<leader><leader>1", "<cmd>:HopChar1<cr>", silent)
 map("v", "<leader><leader>2", "<cmd>:HopChar2<cr>", silent)
 map("v", "<leader><leader>l", "<cmd>:HopLine<cr>", silent)
+
+-- Treehop
+-- omap     <silent> m :<C-U>lua require('tsht').nodes()<CR>
+-- xnoremap <silent> m :lua require('tsht').nodes()<CR>
+
+map("o", "m", ":<C-U>lua require('tsht').nodes()<CR>", silent)
+map("x", "m", ":lua require('tsht').nodes()<CR>", silent)
 
 -- Conjure
 map("n", "<localleader>tt", "<cmd>:ConjureEvalRootForm<cr><cmd>:ConjureCljRunCurrentTest<cr>", silent)

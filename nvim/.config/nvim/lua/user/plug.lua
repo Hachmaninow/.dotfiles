@@ -116,8 +116,10 @@ return packer.startup(function()
   }
 
   -- Colored paranthesis for Treesitter-based syntax highlighting.
-  use "p00f/nvim-ts-rainbow"
+  use 'p00f/nvim-ts-rainbow'
 
+  -- Region selection with hints on the AST powered by treesitter 
+  use 'mfussenegger/nvim-treehopper'
 
 
   -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
