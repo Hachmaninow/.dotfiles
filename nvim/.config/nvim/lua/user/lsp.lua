@@ -48,7 +48,7 @@ lspconfig.elixirls.setup {
     cmd = { "/Users/hachmann/code/tools/elixir-ls/language_server.sh" }
 }
 
-lspconfig.sumneko_lua.setup(
+lspconfig.lua_ls.setup(
   {
     settings = {
       Lua = {

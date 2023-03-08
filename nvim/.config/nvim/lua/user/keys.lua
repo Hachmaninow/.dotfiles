@@ -30,9 +30,6 @@ vim.g.localleader = "\\"
 -- Remap F1 to Escape
 map("n", "<F1>", "<Esc>", silent)
 
-map("n", "<leader>p", 'a<space><C-r>"<esc>', silent)  -- paste with inserting a space letter upfront
-map("n", "<leader>P", 'i<space><C-r>"<esc>', silent)   -- paste before with inserting a space letter upfront
-
 -- Search / tags
 map("n", "<leader>x/", "<cmd>:nohl<cr>", silent)    -- clear search highlights
 map("n", "<leader>xx", "<cmd>:nohl<cr><cmd>:cclose<cr><cmd>:only<cr>", silent)    -- reset "everything"
@@ -55,6 +52,14 @@ map("n", "<C-S-Up>", ":resize +2<CR>", silent)
 map("n", "<C-S-Down>", ":resize -2<CR>", silent)
 map("n", "<C-S-Left>", ":vertical resize -2<CR>", silent)
 map("n", "<C-S-Right>", ":vertical resize +2<CR>", silent)
+
+-- Basic functions
+map("n", "<C-s>", ":wa<CR>", silent)    -- save all
+
+-- Copy/paste
+map("n", "<leader>p", 'a<space><C-r>"<esc>', silent)  -- paste with inserting a space letter upfront
+map("n", "<leader>P", 'i<space><C-r>"<esc>', silent)   -- paste before with inserting a space letter upfront
+
 
 -- Subversive - s for substitute
 map("n", "s", "<Plug>(SubversiveSubstitute)", silent)
@@ -81,6 +86,7 @@ map("n", "<leader>fe", "<cmd>:Telescope emoji<cr>", silent)
 
 -- Gitsigns
 map("n", "<leader>gp", "<cmd>:Gitsigns preview_hunk<cr>", silent)
+map("n", "<leader>gd", "<cmd>:Gitsigns preview_hunk<cr>", silent)
 map("n", "[h", "<cmd>:Gitsigns prev_hunk<cr>", silent)
 map("n", "]h", "<cmd>:Gitsigns next_hunk<cr>", silent)
 map("n", "<leader>ga", "<cmd>:Gitsigns stage_buffer<cr>", silent)
@@ -111,7 +117,7 @@ map("x", "m", ":lua require('tsht').nodes()<CR>", silent)
 
 -- Conjure
 map("n", "<localleader>tt", "<cmd>:ConjureEvalRootForm<cr><cmd>:ConjureCljRunCurrentTest<cr>", silent)
-map("n", "<localleader>cs", "<cmd>:execute ClerkShow()<cr>", silent)
+-- map("n", "<localleader>cs", "<cmd>:execute ClerkShow()<cr>", silent)
 
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -- Insert mode mappings
