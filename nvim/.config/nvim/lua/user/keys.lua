@@ -1,3 +1,8 @@
+-- leader keys
+vim.g.mapleader = ","
+vim.g.maplocalleader = ";"
+
+
 -- Functional wrapper for mapping custom keybindings
 function map(mode, lhs, rhs, opts)
     local options = { noremap = true }
@@ -8,11 +13,6 @@ function map(mode, lhs, rhs, opts)
 end
 
 local silent = { silent = true }
-
-
--- leader keys
-vim.g.mapleader = ","
-vim.g.localleader = "\\"
 
 
 -- Modes:
