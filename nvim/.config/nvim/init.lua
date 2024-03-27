@@ -25,26 +25,15 @@ require("lualine").setup()
 require("nvim-tree").setup {
   update_cwd = true,
   respect_buf_cwd = true,
-  view = {
-    mappings = {
-      custom_only = false,
-      list = {
-          { key = "<C-t>", action = "close" },
-          { key = "<C-up>", action = "dir_up" }
-      }
-    }
-  }
 }
 
 vim.g.rainbow_active = 1
 vim.g["conjure#log#hud#height"] = 0.95
+vim.g["conjure#log#hud#width"] = 0.4
+vim.g["conjure#mapping#doc_word"]="K"
 
--- vim.api.nvim_exec(
--- [[
---   function! ClerkShow()
---     exe "w"
---     exe "ConjureEval (nextjournal.clerk/show! \"" . expand("%:p") . "\")"
---   endfunction
--- ]],
--- false)
+vim.g["loaded_python3_provider"] = 0
+vim.g["loaded_ruby_provider"] = 0
+vim.g["g:loaded_node_provider"] = 0
+vim.g["loaded_perl_provider"] = 0
 

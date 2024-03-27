@@ -59,6 +59,9 @@ return packer.startup(function()
   -- Neovim theme based off of the Nord Color Palette
   use 'shaunsingh/nord.nvim'
 
+  -- clean, dark Neovim theme written 
+  use 'folke/tokyonight.nvim'
+
 
   -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   -- Telescope

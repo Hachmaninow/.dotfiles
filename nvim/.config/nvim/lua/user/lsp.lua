@@ -27,7 +27,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<leader>rr', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', '<leader>cf', vim.lsp.buf.formatting, bufopts)
+  -- vim.keymap.set('n', '<leader>cf', vim.lsp.buf.formatting, bufopts)
 end
 
 
@@ -41,11 +41,6 @@ lspconfig.pyright.setup{
 
 lspconfig.clojure_lsp.setup{
     on_attach = on_attach
-}
-
-lspconfig.elixirls.setup {
-    on_attach = on_attach,
-    cmd = { "/Users/hachmann/code/tools/elixir-ls/language_server.sh" }
 }
 
 lspconfig.lua_ls.setup(

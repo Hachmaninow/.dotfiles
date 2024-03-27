@@ -1,6 +1,6 @@
 local configs = require("nvim-treesitter.configs")
 configs.setup {
-  ensure_installed = {"clojure", "bash", "css", "dockerfile", "elixir", "fennel", "go", "html", "java", "javascript", "json", "json5", "lua", "markdown", "markdown_inline", "regex", "yaml"},
+  ensure_installed = {"clojure", "bash", "css", "dockerfile", "go", "html", "java", "javascript", "json", "json5", "lua", "markdown", "markdown_inline", "regex", "yaml"},
   sync_install = false,
   highlight = {
     enable = true -- false will disable the whole extension
