@@ -20,6 +20,9 @@ UPDATE_ZSH_DAYS=30
 # Use hyphen-insensitive completion.
 HYPHEN_INSENSITIVE=true
 
+zstyle ':omz:plugins:eza' 'dirs-first' yes
+zstyle ':omz:plugins:eza' 'git-status' yes
+
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle z
 antigen bundle colorize
@@ -30,9 +33,14 @@ antigen bundle httpie
 antigen bundle mvn
 antigen bundle lein
 antigen bundle aws
+# antigen bundle fzf
+antigen bundle Aloxaf/fzf-tab
+antigen bundle zsh-users/zsh-completions
 antigen bundle djui/alias-tips
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle nvm
+antigen bundle eza
+antigen bundle gh
 
 # theme
 antigen theme romkatv/powerlevel10k
@@ -56,6 +64,9 @@ bindkey \^U backward-kill-line
 unsetopt nomatch
 setopt extendedglob
 
+autoload -U compinit && compinit
+complete -C aws_completer aws
+
 ######################################################################
 # Environment variables used by various tools.
 ######################################################################
@@ -73,12 +84,17 @@ alias vim="nvim"
 
 alias g='git status'
 alias gg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias ac='git commit -a --amend'
+alias ac='git commit --amend'
+alias aac='git commit -a --amend'
 alias gpo='gp -u origin `git rev-parse --abbrev-ref HEAD`'
 
 alias git-restart='git checkout master && git pull && git remote prune origin && git branch --merged master | grep -v "^[ *]*master$" | xargs git branch -d'
 alias git-replace-local='git fetch origin $(git branch --show-current) && git reset --hard origin/$(git branch --show-current)'
 alias git-merges='git log --merges --pretty="%<(12)%h %C(cyan)%ci%Creset %<(30)%an %b %C(blue)(%s)%Creset"'
+alias git-list-untracked='git fetch --prune && git branch -r | awk "{print \$1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print \$1}"'
+alias git-remove-untracked='git fetch --prune && git branch -r | awk "{print \$1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print \$1}" | xargs git branch -d'
+
+alias ghco=gh pr checkout
 
 alias head='head -n 20'
 
@@ -92,9 +108,6 @@ alias md='mvn deploy'
 # Setting up tools.
 ######################################################################
 
-# Broot
-source /Users/hachmann/.config/broot/launcher/bash/br
-
 # Powerline10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -107,9 +120,6 @@ export SDKMAN_DIR="/Users/hachmann/.sdkman"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ######################################################################
 # Workplace specific stuff (not to manage with Git)
