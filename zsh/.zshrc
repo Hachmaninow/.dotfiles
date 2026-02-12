@@ -117,3 +117,5 @@ eval "$(pyenv init -)"
 #
 FILE=$HOME/.zshrc-workplace-specific.sh && test -f $FILE && source $FILE
 
+# To customize prompt, run `p10k configure` or edit ~/code/.dotfiles/p10k/.p10k.zsh.
+[[ ! -f ~/code/.dotfiles/p10k/.p10k.zsh ]] || source ~/code/.dotfiles/p10k/.p10k.zsh

@@ -35,25 +35,25 @@ end
 -- Specific lsp-client configurations
 -- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-lspconfig.pyright.setup{
-    on_attach = on_attach
-}
+-- lspconfig.pyright.setup{
+--     on_attach = on_attach
+-- }
 
-lspconfig.clojure_lsp.setup{
-    on_attach = on_attach
-}
+-- lspconfig.clojure_lsp.setup{
+--     on_attach = on_attach
+-- }
 
-lspconfig.lua_ls.setup(
-  {
-    settings = {
-      Lua = {
-        diagnostics = {
-            globals = { "vim", "use" }
-        }
-      }
-    }
-  }
-)
+-- lspconfig.lua_ls.setup(
+--   {
+--     settings = {
+--       Lua = {
+--         diagnostics = {
+--             globals = { "vim", "use" }
+--         }
+--       }
+--     }
+--   }
+-- )
 
 
 
